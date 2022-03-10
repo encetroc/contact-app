@@ -14,13 +14,16 @@ const contacts_db = [
 ];
 
 function App() {
+  // reactive variable contacts
   const [contacts, setContacts] = useState(contacts_db);
+  // variable for holding the imput values
   const [img, setImg] = useState("");
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [mobile, setMobile] = useState("");
   const [adresse, setAdresse] = useState("");
 
+  // function to handle the input changes
   const handleInputs = (inputName, event) => {
     switch (inputName) {
       case "img":
@@ -43,6 +46,7 @@ function App() {
     }
   };
 
+  // function to handle the form submit
   const handleSubmit = (event) => {
     event.preventDefault();
     setContacts((contacts) => {
@@ -60,6 +64,7 @@ function App() {
   };
   return (
     <div className="container">
+      {/* form for adding a new contact */}
       <form onSubmit={handleSubmit} className="contact_form">
         <input value={img} onChange={(event) => handleInputs("img", event)} />
         <input value={name} onChange={(event) => handleInputs("name", event)} />
@@ -77,6 +82,7 @@ function App() {
         />
         <button type="submit">Create contact</button>
       </form>
+      {/* list of contacts */}
       {contacts.map((contact) => {
         return (
           <Contact
