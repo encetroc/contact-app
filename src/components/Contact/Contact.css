@@ -15,3 +15,12 @@
   height: 100px;
   border-radius: 50%;
 }
+
+.extra_block {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  padding: 20px;
+}
