@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 } from "uuid";
 import "./AddContact.css";
 
 export function AddContact({ setContacts }) {
@@ -34,10 +35,12 @@ export function AddContact({ setContacts }) {
   // function to handle the form submit
   const handleSubmit = (event) => {
     event.preventDefault();
+    // setContacts function coming from the parent component
     setContacts((contacts) => {
       return [
         ...contacts,
         {
+          id: v4(),
           img,
           name,
           lastname,

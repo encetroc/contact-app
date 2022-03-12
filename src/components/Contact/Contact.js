@@ -1,12 +1,26 @@
 import { useState } from "react";
 import "./Contact.css";
 
-export function Contact({ name, lastname, img, mobile, adresse }) {
+export function Contact({
+  id,
+  name,
+  lastname,
+  img,
+  mobile,
+  adresse,
+  setContacts,
+}) {
   const [show, setShow] = useState();
 
   const handleShow = () => {
     setShow((previousShow) => {
       return !previousShow;
+    });
+  };
+
+  const handleDelete = () => {
+    setContacts((previousContact) => {
+      return previousContact.filter((contact) => contact.id !== id);
     });
   };
 
@@ -24,7 +38,7 @@ export function Contact({ name, lastname, img, mobile, adresse }) {
       {show && (
         <div className="extra_block">
           <div>{adresse}</div>
-          <button>delete</button>
+          <button onClick={handleDelete}>delete</button>
         </div>
       )}
     </div>

@@ -20,12 +20,16 @@ function App() {
   return (
     <div className="container">
       {/* form for adding a new contact */}
+      {/* we are passing the setContacts function to a childe component */}
       <AddContact setContacts={setContacts} />
       {/* list of contacts */}
       {contacts.map((contact) => {
         return (
           <Contact
+            // a key is a must if you are rendering new components from a list of values or array
+            key={contact.id}
             {...contact}
+            setContacts={setContacts}
             /* img={contact.img}
             name={contact.name}
             lastname={contact.lastname}
